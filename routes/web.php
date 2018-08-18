@@ -12,7 +12,8 @@
 */
 
 Route::get('/', 'PagesController@index');
-
 Route::get('/about', 'PagesController@about');
-
 Route::get('/services', 'PagesController@services');
+
+// Create all routes for Tasks
+Route::resource('tasks', 'TasksController');
