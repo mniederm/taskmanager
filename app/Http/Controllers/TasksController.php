@@ -26,7 +26,7 @@ class TasksController extends Controller
      */
     public function create()
     {
-        //
+        return view('tasks.create');
     }
 
     /**
@@ -37,7 +37,18 @@ class TasksController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required',
+            'body' => 'required'
+        ]);
+
+        //Create Task
+        $task = new Task;
+        $task->title = $request->input('title');
+        $task->body = $request->input('body');
+        $task->save();
+
+        return redirect('/tasks')->with('success', 'Task created');
     }
 
     /**

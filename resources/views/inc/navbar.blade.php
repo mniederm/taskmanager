@@ -11,8 +11,15 @@
             <li class="nav-item">
                 <a class="nav-link" href="/services">Services</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/tasks">Tasks</a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Tasks
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/tasks">Tasks</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="/tasks/create">Create task</a>
+                </div>
             </li>
         </ul>                    
     </div>

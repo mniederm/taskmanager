@@ -11,7 +11,8 @@
                     <div class="card">
                         <div class="card-body">
                             <h3 class="card-title"><a href="/tasks/{{$task->id}}">{{$task->title}}</a></h3>
-                            <p class="card-text">{{$task->body}}</p>
+                            {{-- !!xx!! is used to render html tags inside the body --}}
+                            <p class="card-text">{!!$task->body!!}</p>
                             <div class="card-footer text-muted">
                                 <small>created: {{$task->created_at}} modified: {{$task->updated_at}}</small>
                             </div>
