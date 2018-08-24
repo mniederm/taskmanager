@@ -96,7 +96,7 @@ class TasksController extends Controller
         $task->body = $request->input('body');
         $task->save();
 
-        return redirect('/tasks')->with('success', 'Task '.$id.' updated');
+        return redirect('/tasks')->with('success', 'Task: '.$task->title.' updated');
     }
 
     /**
