@@ -71,7 +71,8 @@ class TasksController extends Controller
      */
     public function edit($id)
     {
-        //
+        $task = Task::find($id);
+        return view('tasks.edit')->with('task', $task);
     }
 
     /**
@@ -83,7 +84,18 @@ class TasksController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required',
+            'body' => 'required'
+        ]);
+
+        //Find Task
+        $task = Task::find($id);
+        $task->title = $request->input('title');
+        $task->body = $request->input('body');
+        $task->save();
+
+        return redirect('/tasks')->with('success', 'Task '.$id.' updated');
     }
 
     /**
@@ -94,6 +106,10 @@ class TasksController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //Find Task
+        $task = Task::find($id);
+        $task->delete();
+
+        return redirect('/tasks')->with('success', 'Task '.$id.' removed');
     }
 }
