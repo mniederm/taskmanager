@@ -1,0 +1,7 @@
+-- Laravel commands -- 
+
+//Create a controller with all needed functions
+php artisan make:controller TasksController --resource
+
+//See all routes in command line
+php artisan route:list
