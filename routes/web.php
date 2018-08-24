@@ -17,3 +17,6 @@ Route::get('/services', 'PagesController@services');
 
 // Create all routes for Tasks
 Route::resource('tasks', 'TasksController');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

@@ -5,3 +5,10 @@ php artisan make:controller TasksController --resource
 
 //See all routes in command line
 php artisan route:list
+
+//Create a migrations file for database manipulation
+php artisan make:migration add_user_id_to_tasks
+//After editing the migrate file and dowing with the database what should be done run:
+php artisan migrate
+//To undo the changes run:
+php artisan migrate rollback

@@ -46,6 +46,7 @@ class TasksController extends Controller
         $task = new Task;
         $task->title = $request->input('title');
         $task->body = $request->input('body');
+        $task->user_id = auth()->user()->id;
         $task->save();
 
         return redirect('/tasks')->with('success', 'Task created');
