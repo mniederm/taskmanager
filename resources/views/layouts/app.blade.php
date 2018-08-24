@@ -27,6 +27,7 @@
             @include('inc/messages')
             @yield('content')
          </div>
+        @include('inc/footer')
     </div>
 
     <!-- Script for WYSIWYG Editor -->

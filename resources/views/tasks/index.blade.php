@@ -7,7 +7,7 @@
     @if(count($tasks) > 0)
         <div class="row">
             @foreach($tasks as $task)    
-                <div class="col-sm-6">
+                <div class="col-sm-6 mb-1">
                     <div class="card">
                         <div class="card-body">
                             <h3 class="card-title"><a href="/tasks/{{$task->id}}">{{$task->title}}</a></h3>
