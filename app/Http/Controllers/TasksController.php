@@ -16,7 +16,12 @@ class TasksController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        // set authentication for the tasks --> only auth users can access
+        // except of an array of functions
+        $this->middleware('auth', ['except' => ['show']]);
+        
+        // everything is only accessable for auth users
+        //$this->middleware('auth');
     }
 
     /**
@@ -26,7 +31,7 @@ class TasksController extends Controller
      */
     public function index()
     {
-        // get user and his id
+        // get logged in user and his id
         $user_id = auth()->user()->id;
         $user = User::find($user_id);
 
@@ -80,7 +85,12 @@ class TasksController extends Controller
     public function show($id)
     {
         $task = Task::find($id);
-        return view('tasks.show')->with('task', $task);
+        if (!empty($task)){
+            return view('tasks.show')->with('task', $task);
+        } 
+        else {
+            return redirect('/tasks')->with('error', 'Task '.$id.' can not be found');    
+        }
     }
 
     /**
@@ -92,7 +102,14 @@ class TasksController extends Controller
     public function edit($id)
     {
         $task = Task::find($id);
-        return view('tasks.edit')->with('task', $task);
+
+        // Check for correct user
+        if (auth()->user()->id !== $task->user_id){
+            return redirect('/tasks')->with('error', 'You are not allowed to edit this task');    
+        }
+        else {
+            return view('tasks.edit')->with('task', $task);
+        }
     }
 
     /**
@@ -128,8 +145,12 @@ class TasksController extends Controller
     {
         //Find Task
         $task = Task::find($id);
-        $task->delete();
-
-        return redirect('/tasks')->with('success', 'Task '.$id.' removed');
+        // Check for correct user
+        if (auth()->user()->id !== $task->user_id){
+            return redirect('/tasks')->with('error', 'You are not allowed to delete this task');    
+        } else {
+            $task->delete();
+            return redirect('/tasks')->with('success', 'Task '.$id.' removed');
+        }
     }
 }
