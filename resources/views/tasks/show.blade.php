@@ -44,10 +44,15 @@
                     @if(Auth::user()->id == $task->user_id) 
                         <a href="/tasks/{{$task->id}}/edit" class="btn btn-secondary">Edit</a>
 
-                        {!!Form::open(['action' => ['TasksController@destroy', $task->id], 'methode' => 'POST', 'class' => 'float-right'])!!}
-                            {{Form::hidden('_method', 'DELETE')}}
-                            {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
-                        {!!Form::close()!!}
+                        <a href="" data-toggle="modal" data-target="#deletemodal" class="btn btn-danger float-right">Delete</a>
+                        <?php 
+                            $title = $task->title; 
+                            $delet_message = 'Are you sure you want to put that out?';
+                            $action = 'TasksController@destroy';
+                            $action_id = $task->id;
+                        ?>
+                        <!-- Delete prompt -->
+                        @extends('inc/delete_prompt')
                     @endif
                 @endif
             </div>
