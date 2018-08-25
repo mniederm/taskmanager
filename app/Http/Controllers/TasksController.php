@@ -4,9 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Task;
+use App\User;
 
 class TasksController extends Controller
 {
+    
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,8 +26,15 @@ class TasksController extends Controller
      */
     public function index()
     {
-        //$tasks = Task:all();
-        $tasks = Task::orderBy('created_at', 'desc')->paginate(10);
+        // get user and his id
+        $user_id = auth()->user()->id;
+        $user = User::find($user_id);
+
+        // request all tasks
+        //$tasks = Task::orderBy('created_at', 'desc')->paginate(10);
+        
+        // request only the users tasks
+        $tasks = $user->tasks()->orderBy('created_at', 'desc')->paginate(10);
         return view('tasks.index')->with('tasks', $tasks);
     }
 

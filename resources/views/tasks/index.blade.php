@@ -14,7 +14,8 @@
                             {{-- !!xx!! is used to render html tags inside the body --}}
                             <p class="card-text">{!!$task->body!!}</p>
                             <div class="card-footer text-muted">
-                                <small>created: {{$task->created_at}} modified: {{$task->updated_at}}</small>
+                            <small>created: {{$task->created_at}} from user: {{$task->user->name}}</small> 
+                            <br><small> last modified: {{$task->updated_at}}</small>
                             </div>
                         </div>
                     </div>

@@ -4,7 +4,8 @@
     <h1>{{$task->title}}</h1>  
         <div>{!!$task->body!!}</div> 
         <hr> 
-        <small>created: {{$task->created_at}} modified: {{$task->updated_at}}</small>
+        <small>created: {{$task->created_at}} from user: {{$task->user->name}}</small> 
+        <br><small> last modified: {{$task->updated_at}}</small>
         <hr>
     <a href="/tasks/{{$task->id}}/edit" class="btn btn-default">Edit</a>
 
