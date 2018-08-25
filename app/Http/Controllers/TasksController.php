@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Task;
 use App\User;
 
@@ -63,14 +64,28 @@ class TasksController extends Controller
     {
         $this->validate($request, [
             'title' => 'required',
-            'body' => 'required'
+            'body' => 'required',
+            'task_image' => 'image|nullable|max:1999'
         ]);
+        
+        // Handle File Upload
+        if($request->hasFile('task_image')){
+            $fileNameWithExt = $request->file('task_image')->getClientOriginalName();
+            $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+            $extension = $request->file('task_image')->getClientOriginalExtension();
+            $fileNameToStore = $filename.'_'.time().$extension;
+            $path = $request->file('task_image')->storeAs('public/task_images', $fileNameToStore);
+        } else {
+            $fileNameToStore = 'noimage.jpg';
+        } 
+
 
         //Create Task
         $task = new Task;
         $task->title = $request->input('title');
         $task->body = $request->input('body');
         $task->user_id = auth()->user()->id;
+        $task->task_image = $fileNameToStore;
         $task->save();
 
         return redirect('/tasks')->with('success', 'Task created');
@@ -123,13 +138,28 @@ class TasksController extends Controller
     {
         $this->validate($request, [
             'title' => 'required',
-            'body' => 'required'
+            'body' => 'required',
+            'task_image' => 'image|nullable|max:1999'
         ]);
+
+        // Handle File Upload
+        if($request->hasFile('task_image')){
+            $fileNameWithExt = $request->file('task_image')->getClientOriginalName();
+            $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+            $extension = $request->file('task_image')->getClientOriginalExtension();
+            $fileNameToStore = $filename.'_'.time().$extension;
+            $path = $request->file('task_image')->storeAs('public/task_images', $fileNameToStore);
+        }
 
         //Find Task
         $task = Task::find($id);
         $task->title = $request->input('title');
         $task->body = $request->input('body');
+        if($request->hasFile('task_image')){
+            // Delete old File
+            Storage::delete('public/task_images/'.$task->task_image);
+            $task->task_image = $fileNameToStore;
+        }
         $task->save();
 
         return redirect('/tasks')->with('success', 'Task: '.$task->title.' updated');
@@ -149,6 +179,9 @@ class TasksController extends Controller
         if (auth()->user()->id !== $task->user_id){
             return redirect('/tasks')->with('error', 'You are not allowed to delete this task');    
         } else {
+            if ($task->task_image != 'noimage.jpg'){
+                Storage::delete('public/task_images/'.$task->task_image);
+            }
             $task->delete();
             return redirect('/tasks')->with('success', 'Task '.$id.' removed');
         }
