@@ -42,7 +42,7 @@
             <div class="col-md-12 cols-sm-12">       
                 @if(!Auth::guest())  
                     @if(Auth::user()->id == $task->user_id) 
-                        <a href="/tasks/{{$task->id}}/edit" class="btn btn-default">Edit</a>
+                        <a href="/tasks/{{$task->id}}/edit" class="btn btn-secondary">Edit</a>
 
                         {!!Form::open(['action' => ['TasksController@destroy', $task->id], 'methode' => 'POST', 'class' => 'float-right'])!!}
                             {{Form::hidden('_method', 'DELETE')}}

@@ -4,18 +4,18 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Tasks
-                </a>
+        <div class="btn-group">
+            <a href="/tasks" class="btn btn-secondary" role="button">Task</a>
+            <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span class="sr-only">Tasks</span>
+            </button>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="/tasks">Tasks</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="/tasks/create">Create task</a>
                 </div>
-            </li>
-        </ul>  
+            </div>
+        </div>  
         
         <!-- Right Side Of Navbar -->
         <ul class="navbar-nav ml-auto">
