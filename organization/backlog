@@ -1,6 +1,6 @@
 Open:
 - DB auf MongoDB umstellen
-- Register mit Double Opt In machen
+- Register mit Double Opt In machen (https://packagist.org/packages/m3rten/laravel-double-opt-in)
 - Mehrsprachigkeit gleich von Beginn implementieren
 - Delete save (ask before delete with prompt)
 - Task Edit - Bild anzeigen, Löschen und Ändern ermöglichen

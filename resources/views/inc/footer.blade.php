@@ -111,6 +111,6 @@
     
         <!-- Copyright -->
         <div class="footer-copyright text-center text-black-50 py-3">© 2018 Copyright:
-          <a class="dark-grey-text" href="/">Taskmanager</a>
+          <a class="dark-grey-text" href="/">{{config('app.name', 'Taskmanager')}}</a>
         </div>
       </footer>
