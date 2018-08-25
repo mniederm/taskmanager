@@ -11,9 +11,18 @@
             {{Form::label('body', 'Body')}}
             {{Form::textarea('body', '', ['id' => 'summary-ckeditor', 'class' => 'form-control', 'placeholder' => 'Body text'])}}
         </div>
-        <div class="form-group">
+        <div class="form-group btn btn-secondary">
             {{Form::file('task_image')}}
         </div>
         {{Form::submit('Submit', ['class' => 'btn btn-primary'])}}
     {!! Form::close() !!}
+@endsection
+
+@section('beforeClosingBody')
+    <!-- Script for WYSIWYG Editor -->
+    <script src="{{ asset('vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
+    <script>
+        CKEDITOR.replace( 'summary-ckeditor' );
+    </script>
+    <!-- End Script -->
 @endsection

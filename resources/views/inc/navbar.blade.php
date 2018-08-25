@@ -9,14 +9,12 @@
             <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <span class="sr-only">Tasks</span>
             </button>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="/tasks">Tasks</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="/tasks/create">Create task</a>
-                </div>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/tasks">Tasks</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/tasks/create">Create task</a>
             </div>
         </div>  
-        
         <!-- Right Side Of Navbar -->
         <ul class="navbar-nav ml-auto">
             <!-- Authentication Links -->
@@ -49,6 +47,5 @@
                 </li>
             @endguest
         </ul>
-        
     </div>
 </nav>

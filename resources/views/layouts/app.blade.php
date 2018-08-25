@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="canonical" href="{{ URL::current() }}"/>
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -15,10 +16,7 @@
     
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>  
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css"> 
 </head>
 <body>
     <div id="app">
@@ -28,13 +26,9 @@
             @yield('content')
          </div>
         @include('inc/footer')
-    </div>
-
-    <!-- Script for WYSIWYG Editor -->
-    <script src="{{ asset('vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
-    <script>
-        CKEDITOR.replace( 'summary-ckeditor' );
-    </script>
-    <!-- End Script -->
+    </div> 
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}"></script> 
+    @yield('beforeClosingBody')
 </body>
 </html>
