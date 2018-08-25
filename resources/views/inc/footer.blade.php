@@ -1,5 +1,5 @@
 <!-- Footer -->
-<footer class="page-footer font-small blue-grey lighten-5 mt-2">
+<footer class="page-footer font-small blue-grey lighten-5 mt-4">
 
         <div class="footer-task">
           <div class="container">

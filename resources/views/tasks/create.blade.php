@@ -14,7 +14,7 @@
         <div class="form-group btn btn-secondary">
             {{Form::file('task_image')}}
         </div>
-        {{Form::submit('Submit', ['class' => 'btn btn-primary'])}}
+        {{Form::submit('Submit', ['class' => 'btn btn-primary float-md-right'])}}
     {!! Form::close() !!}
 @endsection
 

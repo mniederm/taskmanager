@@ -16,7 +16,7 @@
         </div>
         {{-- request has to be a put request if you look to the rout therefor we put this hidden field--}}
         {{Form::hidden('_method', 'PUT')}}
-        {{Form::submit('Submit', ['class' => 'btn btn-primary'])}}
+        {{Form::submit('Submit', ['class' => 'btn btn-primary float-md-right'])}}
     {!! Form::close() !!}
 @endsection
 
