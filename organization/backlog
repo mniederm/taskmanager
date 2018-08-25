@@ -3,6 +3,7 @@ Open:
 - Register mit Double Opt In machen
 - Mehrsprachigkeit gleich von Beginn implementieren
 - Delete save (ask before delete with prompt)
+- Task Edit - Bild anzeigen, Löschen und Ändern ermöglichen
 
 Done:
 - Footer erstellen und die Links aus dem oberen Menü verschieben --> 24.8.2018

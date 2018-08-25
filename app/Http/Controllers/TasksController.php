@@ -156,8 +156,10 @@ class TasksController extends Controller
         $task->title = $request->input('title');
         $task->body = $request->input('body');
         if($request->hasFile('task_image')){
-            // Delete old File
-            Storage::delete('public/task_images/'.$task->task_image);
+            if ($task->task_image != '' and $task->task_image != 'noimage.jpg'){
+                // Delete old File
+                Storage::delete('public/task_images/'.$task->task_image);
+            }
             $task->task_image = $fileNameToStore;
         }
         $task->save();
@@ -179,7 +181,7 @@ class TasksController extends Controller
         if (auth()->user()->id !== $task->user_id){
             return redirect('/tasks')->with('error', 'You are not allowed to delete this task');    
         } else {
-            if ($task->task_image != 'noimage.jpg'){
+            if ($task->task_image != 'noimage.jpg' and $task->task_image != ''){
                 Storage::delete('public/task_images/'.$task->task_image);
             }
             $task->delete();
