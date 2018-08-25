@@ -5,7 +5,26 @@
         <div class="row">
             @if($task->task_image != '' and $task->task_image != 'noimage.jpg')
                 <div class="col-md-3 col-sm-3">
-                    <img style="width:100%" src="/storage/task_images/{{$task->task_image}}">
+                    <a href="" data-toggle="modal" data-target="#taskimmagemodal"><img style="width:100%" src="/storage/task_images/{{$task->task_image}}"></a>
+                    <div class="modal fade" id="taskimmagemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalCenterTitle">{{$task->title}}</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <img style="width:100%" src="/storage/task_images/{{$task->task_image}}">
+                                </div>
+                                <!-- <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button> 
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
                 </div> 
                 <div class="col-md-9 col-sm-9">  
             @else
