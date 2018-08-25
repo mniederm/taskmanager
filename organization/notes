@@ -1,14 +1,28 @@
 -- Laravel commands -- 
 
-//Create a controller with all needed functions
+// Create a controller with all needed functions
 php artisan make:controller TasksController --resource
 
-//See all routes in command line
+// See all routes in command line
 php artisan route:list
 
-//Create a migrations file for database manipulation
+// Create a migrations file for database manipulation
 php artisan make:migration add_user_id_to_tasks
-//After editing the migrate file and dowing with the database what should be done run:
+// After editing the migrate file and dowing with the database what should be done run:
 php artisan migrate
-//To undo the changes run:
+// To undo the changes run:
 php artisan migrate rollback
+
+
+// Mongo DB
+// Mongo DB Server Files wurden ins Verzeichnis /usr/local/bin gestellt
+1. Start Mongo DB in Terminal --> mongod 
+// wenn das angezeigt wird ist alles OK: waiting for connections on port 27017
+
+2. In einem zweiten Terminal --> mongo starten für die Administration
+
+--> Mongo DB php driver sollte installiert sein in der php.ini bei xampp ist die Zeile extension=mongodb.so
+eingetragen
+
+--> nächster Schritt sollte die laravel mongodb Erweiterung sein:
+https://github.com/jenssegers/laravel-mongodb
