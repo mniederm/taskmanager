@@ -14,6 +14,9 @@ php artisan migrate
 php artisan migrate rollback
 
 
+// git repository
+https://github.com/mniederm/taskmanager.git
+
 // Mongo DB
 // Mongo DB Server Files wurden ins Verzeichnis /usr/local/bin gestellt
 1. Start Mongo DB in Terminal --> mongod 
@@ -26,3 +29,7 @@ eingetragen
 
 --> nächster Schritt sollte die laravel mongodb Erweiterung sein:
 https://github.com/jenssegers/laravel-mongodb
+- mamp installiert um Mongo PHP driver zu installieren hat bei xampp nicht funktioniert
+- Taskmanager repository clonen
+- mamp so konfigurieren, dass localhost auf taskmanager zeigt
+- Branch für MongoDB machen
