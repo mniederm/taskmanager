@@ -11,6 +11,13 @@
 |
 */
 
+// Test ob die MongoDB Connection funktioniert
+Route::get('mongo', function(Request $request) {
+    $collection = Mongo::get()->test->inventory;
+    return $collection->find()->toArray();
+});
+// Ende Test
+
 Route::get('/', 'PagesController@index');
 Route::get('/about', 'PagesController@about');
 Route::get('/services', 'PagesController@services');
