@@ -5,14 +5,14 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <div class="btn-group">
-            <a href="/tasks" class="btn btn-secondary" role="button">Task</a>
+            <a href="/tasks" class="btn btn-secondary" role="button">Tasks</a>
             <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <span class="sr-only">Tasks</span>
             </button>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="/tasks">Tasks</a>
-                <div class="dropdown-divider"></div>
+                <!-- <a class="dropdown-item" href="/tasks">Tasks</a> -->
                 <a class="dropdown-item" href="/tasks/create">Create task</a>
+                <!-- <div class="dropdown-divider"></div> -->
             </div>
         </div>  
         <!-- Right Side Of Navbar -->
