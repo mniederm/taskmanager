@@ -79,7 +79,6 @@ class TasksController extends Controller
             $fileNameToStore = 'noimage.jpg';
         } 
 
-
         //Create Task
         $task = new Task;
         $task->title = $request->input('title');

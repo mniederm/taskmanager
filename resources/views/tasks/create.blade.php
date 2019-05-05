@@ -8,8 +8,24 @@
             {{Form::text('title', '', ['class' => 'form-control', 'placeholder' => 'Title'])}}
         </div>
         <div class="form-group">
-            {{Form::label('body', 'Body')}}
-            {{Form::textarea('body', '', ['id' => 'summary-ckeditor', 'class' => 'form-control', 'placeholder' => 'Body text'])}}
+            {{Form::label('status', 'Status')}}
+            {{Form::select('status', config('enums.task_status'))}}
+        </div>
+        <div class="form-group">
+            {{Form::label('keyword', 'Keyword')}}
+            {{Form::text('keyword', '', ['class' => 'form-control', 'placeholder' => 'Keyword this task belongs to, if no leave empty.'])}}
+        </div>
+        <div class="form-group">
+            {{Form::label('url', 'URL')}}
+            {{Form::text('url', '', ['class' => 'form-control', 'placeholder' => 'URL this task belongs to, if no leave empty.'])}}
+        </div>
+        <div class="form-group">
+            {{Form::label('impact', 'Impact')}}
+            {{Form::select('impact', config('enums.task_impact'))}}
+        </div>
+        <div class="form-group">
+            {{Form::label('body', 'Description')}}
+            {{Form::textarea('body', '', ['id' => 'summary-ckeditor', 'class' => 'form-control', 'placeholder' => 'Taks description'])}}
         </div>
         <div class="form-group btn btn-secondary">
             {{Form::file('task_image')}}

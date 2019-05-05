@@ -1,9 +1,18 @@
 Open:
-- DB auf MongoDB umstellen
 - Register mit Double Opt In machen (https://packagist.org/packages/m3rten/laravel-double-opt-in)
 - Mehrsprachigkeit gleich von Beginn implementieren
-- Delete save (ask before delete with prompt)
 - Task Edit - Bild anzeigen, Löschen und Ändern ermöglichen
+- Labels für die Tasks erstellen -> eigene Tabelle für die Labels + Verknüpfungstabelle oder Enums in der enums.php
+- Messwerte für die Tasks erstellen --> eigene Tabelle für die Messwerte + Verknüpfungstabelle oder Enums in der enums.php
+
+Todo next:
+- Neue Task DB Felder in alle Aktionen bei TasksController und die Views einbauen
+-- Bei einem neuen Task den Status auf nicht editierbar setzen
+-- Wenn der Status auf Implemented gesetzt wurde den timestamp auf der DB setzen --> Wenn der Status auf open oder in progress steht timestamp zurück setzen
 
 Done:
 - Footer erstellen und die Links aus dem oberen Menü verschieben --> 24.8.2018
+- Delete save (ask before delete with prompt)
+
+Later:
+- DB auf MongoDB umstellen
