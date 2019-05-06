@@ -3,7 +3,7 @@ Open:
 - Mehrsprachigkeit gleich von Beginn implementieren
 - Task Edit - Bild anzeigen, Löschen und Ändern ermöglichen
 - Labels für die Tasks erstellen -> eigene Tabelle für die Labels + Verknüpfungstabelle oder Enums in der enums.php
-- Messwerte für die Tasks erstellen --> eigene Tabelle für die Messwerte + Verknüpfungstabelle oder Enums in der enums.php
+- Hypothese und Messwerte für die Tasks erstellen --> eigene Tabelle für die Messwerte + Verknüpfungstabelle oder Enums in der enums.php
 
 Todo next:
 - Neue Task DB Felder in alle Aktionen bei TasksController und die Views einbauen

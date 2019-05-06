@@ -14,7 +14,7 @@ php artisan migrate
 php artisan migrate rollback
 
 
-// Mongo DB
+// ---- Mongo DB ------------------------------------------------------
 // Mongo DB Server Files wurden ins Verzeichnis /usr/local/bin gestellt
 1. Start Mongo DB in Terminal --> mongod 
 // wenn das angezeigt wird ist alles OK: waiting for connections on port 27017

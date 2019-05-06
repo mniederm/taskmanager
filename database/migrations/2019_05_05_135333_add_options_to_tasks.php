@@ -14,8 +14,8 @@ class AddOptionsToTasks extends Migration
     public function up()
     {
         Schema::table('tasks', function (Blueprint $table){
-            $table->string('keyword');
-            $table->string('url');
+            $table->string('keyword')->default(null);
+            $table->string('url')->default(null);
             $table->integer('status')->default(0);
             $table->timestamp('implemented_at')->default('1990-01-01 00:00:00');
             $table->integer('impact')->default(0);

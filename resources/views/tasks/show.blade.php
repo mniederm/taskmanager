@@ -31,6 +31,14 @@
                 <div class="col-md-12 col-sm-12">    
             @endif
             <h1>{{$task->title}}</h1>  
+                <div>status: {!!config('enums.task_status.'.$task->status)!!}</div>
+                @php
+                    // only if task is implemented show the timestamp
+                    if ($task->status == 3){
+                        echo '<div>taks implemented at: '.$task->implemented_at.'</div>';
+                    }
+                @endphp
+                <div>impact: {!!config('enums.task_impact.'.$task->impact)!!}</div>    
                 <div>{!!$task->body!!}</div> 
                 <hr> 
                 <small>created: {{$task->created_at}} from user: {{$task->user->name}}</small> 

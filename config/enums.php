@@ -21,5 +21,9 @@ return [
     'task_impact' => [
         0 => 'on this site',
         1 => 'on the domain'
-    ]
+    ],
+
+    'empty_timestamp' => '1990-01-01 00:00:00',
+
+    'empty_picture' => 'noimage.jpg',
 ];

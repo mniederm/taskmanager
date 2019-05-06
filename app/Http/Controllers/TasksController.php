@@ -76,7 +76,7 @@ class TasksController extends Controller
             $fileNameToStore = $filename.'_'.time().$extension;
             $path = $request->file('task_image')->storeAs('public/task_images', $fileNameToStore);
         } else {
-            $fileNameToStore = 'noimage.jpg';
+            $fileNameToStore = config('enums.empty_picture');
         } 
 
         //Create Task
@@ -85,6 +85,13 @@ class TasksController extends Controller
         $task->body = $request->input('body');
         $task->user_id = auth()->user()->id;
         $task->task_image = $fileNameToStore;
+        $task->keyword = $request->input('keyword');
+        $task->url = $request->input('url');
+        //$task->status = $request->input('status');
+        //a new task should be in state open=0
+        $task->status = 0;
+        $task->implemented_at = config('enums.empty_timestamp');
+        $task->impact = $request->input('impact');
         $task->save();
 
         return redirect('/tasks')->with('success', 'Task created');
@@ -155,7 +162,7 @@ class TasksController extends Controller
         $task->title = $request->input('title');
         $task->body = $request->input('body');
         if($request->hasFile('task_image')){
-            if ($task->task_image != '' and $task->task_image != 'noimage.jpg'){
+            if ($task->task_image != '' and $task->task_image != config('enums.empty_picture')){
                 // Delete old File
                 Storage::delete('public/task_images/'.$task->task_image);
             }
