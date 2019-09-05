@@ -9,6 +9,7 @@ Todo next:
 - Neue Task DB Felder in alle Aktionen bei TasksController und die Views einbauen
 -- Bei einem neuen Task den Status auf nicht editierbar setzen
 -- Wenn der Status auf Implemented gesetzt wurde den timestamp auf der DB setzen --> Wenn der Status auf open oder in progress steht timestamp zurück setzen
+-- 2019-05-06 bei create den status raus nehmen, muss immer 0 sein --> bei show stehen geblieben
 
 Done:
 - Footer erstellen und die Links aus dem oberen Menü verschieben --> 24.8.2018
